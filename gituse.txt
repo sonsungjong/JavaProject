@@ -1,0 +1,14 @@
+git remote add origin <URL>
+git config --global user.name "sonsungjong"
+git config --global user.email tjdwhd70599@gmail.com
+git init
+touch .gitignore
+git pull
+git add .
+git commit -m "message input"
+git push origin master
+
+
+pwd (현재 경로)
+cd c: (C드라이브로 이동)
+ls (현재 경로의 항목)
