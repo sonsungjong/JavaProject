@@ -1,0 +1,15 @@
+package com.example.springboot.service;
+
+import com.example.springboot.model.User;
+import com.example.springboot.web.dto.UserRegistrationDto;
+
+@Service
+public class UserServiceImpl implements UserService{
+
+	@Override
+	public User save(UserRegistrationDto registrationDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

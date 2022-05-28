@@ -1,0 +1,18 @@
+package com.example.study.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class GetController {
+	
+	@RequestMapping("/getMethod")
+	public String getRequest() {
+		return "Hi getMethod";
+	}
+	
+	public String getParameter() {
+		
+	}
+}
+	

@@ -1,0 +1,7 @@
+package com.example.springboot.model;
+
+public class User {
+	
+	private Long id;
+	
+}
