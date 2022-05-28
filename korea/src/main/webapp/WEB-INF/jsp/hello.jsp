@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h2 align="center"> Hello ${name}!</h2>
+	<p>myWord is ${var}</p>
 </body>
 </html>
