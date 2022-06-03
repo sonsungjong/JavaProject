@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="./result" id="myform">
-		<input type="text" name="input1" value=""/>
-		<button type="submit">입력</button>
-	</form>
+	<h2>${send1}</h2>
 </body>
 </html>

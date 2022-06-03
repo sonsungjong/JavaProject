@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,5 +22,12 @@ public class HelloController {
 		String str = "index 시작페이지";
 		model.addAttribute("jstl",str);				// ${jstl}
 		return "index";					// index.jsp
+	}
+	
+	@GetMapping("/result")
+	public String result(HttpServletRequest httpServletRequest, Model model) {
+		String input1 = httpServletRequest.getParameter("input1");
+		model.addAttribute("send1", input1);
+		return "result";
 	}
 }
