@@ -3,7 +3,7 @@ git config --global user.name "sonsungjong"
 git config --global user.email tjdwhd70599@gmail.com
 git init
 touch .gitignore
-git pull
+git pull [origin] [master]
 git add .
 git commit -m "message input"
 git push origin master

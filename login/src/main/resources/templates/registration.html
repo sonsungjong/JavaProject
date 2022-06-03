@@ -2,9 +2,74 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Registration</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<!-- Spring Boot Login and Registration with MySQL Database 45:00 -->
+	<!-- navigation bar -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">나의 홈페이지</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">등록과 로그인</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	
+	<!-- registration form -->
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-md-6 align-self-center">
+				<!-- 성공메시지 -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">
+						등록완료!
+					</div>
+				</div>
+				<h1>등록페이지</h1>
+				 <form th:action="@{/registration}" method="post" th:object="${user}">
+					<div class="form-group">
+						<label class="control-label" for="firstName">
+							First Name
+						</label>
+						<input id="firstName" class="form-control" th:field="*{firstName}" required autofocus="autofocus"/>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="lastName">
+							Last Name
+						</label>
+						<input id="lastName" class="form-control" th:field="*{lastName}" required="required"/>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="email">
+							Email
+						</label>
+						<input id="email" class="form-control" th:field="*{email}" required="required"/>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="password">
+							Password
+						</label>
+						<input id="password" class="form-control" th:field="*{password}" required="required" />
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">등록하기</button>
+						<span>이미 가입했나요? <a href="/" th:href="@{/login}">여기서 로그인</a></span>
+					</div>
+				</form> 
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
