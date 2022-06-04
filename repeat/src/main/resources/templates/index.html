@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link th:href="@{/css/main.css}" rel="stylesheet"> -->
+<link rel="stylesheet" href="./css/main.css">
+<!-- <script type="text/javascript" th:src="@{/js/actions.js}"></script> -->
+<script src="./js/actions.js"></script>
+</head>
+<body>
+<div class="container">
+	<h1 th:text="'Hello '+${msg}"></h1>
+	<img src="./img/photo1.jpg" alt="...a" height="500px" width="500px">
+	<button type="button" th:onclick="demo()">Show Alert</button>
+	<br>
+	
+	<form th:action="@{/result}" method="get">
+		<input type="text" id="input-id" name="input-name" placeholder="입력하세요" onclick="inputEmpty()">
+		<button type="submit">submit버튼</button>
+	</form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
