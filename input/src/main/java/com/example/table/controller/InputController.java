@@ -26,4 +26,8 @@ public class InputController {
 		return "redirect:/";				// localhost:8080/
 	}
 	
+	@GetMapping("/oper")
+	public String operPage() {
+		return "oper/double_input";
+	}
 }
