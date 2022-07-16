@@ -9,18 +9,18 @@ import com.example.table.entity.Student;
 import com.example.table.repository.StudentRepository;
 
 @SpringBootApplication
-public class TableApplication implements CommandLineRunner{
+public class TableApplication /* implements CommandLineRunner */{
 
 	public static void main(String[] args) {
 		SpringApplication.run(TableApplication.class, args);
 		System.out.println("게시판 시작");
 	}
 
-	@Autowired
-	private StudentRepository studentRepository;
-	
-	@Override
-	public void run(String... args) throws Exception {
+//	@Autowired
+//	private StudentRepository studentRepository;
+//	
+//	@Override
+//	public void run(String... args) throws Exception {
 //		Student student1 = new Student("Sungjong", "Son", "tbxmtbfm@naver.com1");
 //		studentRepository.save(student1);
 //				
@@ -29,6 +29,6 @@ public class TableApplication implements CommandLineRunner{
 //		
 //		Student student3 = new Student("Sample3", "Son", "tbxmtbfm@naver.com3");
 //		studentRepository.save(student3);
-	}
+//	}
 
 }
