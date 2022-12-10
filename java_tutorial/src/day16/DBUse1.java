@@ -8,6 +8,8 @@ import java.sql.Statement;
 
 public class DBUse1 {
 	public static void main(String[] args) {
+		// 프로젝트 속성 -> Java Build Path -> Libraries -> Classpath -> Add External JARs... -> ojdbc6.jar 또는 mysql-connector-java-8.0.28.jar (C:\\Program Files (x86)\\MySQL\\Connector J 8.0\\)
+		
 		DBUser1 dbuser1 = new DBUser1();
 //		dbuser1.connect();
 //		dbuser1.insert();
@@ -28,7 +30,7 @@ class DBUser1{
 	private Connection conn;
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "root";
-	private static final String URL = "jdbc:mysql://localhost:3306/company";
+	private static final String URL = "jdbc:mysql://localhost:3306/company";				// 스키마명
 	
 	public DBUser1() {
 		try {

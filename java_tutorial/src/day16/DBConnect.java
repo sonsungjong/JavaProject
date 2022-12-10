@@ -6,6 +6,11 @@ import java.sql.SQLException;
 
 public class DBConnect {
 	public static void main(String[] args) {
+		// 프로젝트 속성 -> Java Build Path -> Libraries -> Add External JARs... -> ojdbc6.jar 또는 mysql-connector-java-8.0.28.jar (C:\\Program Files (x86)\\MySQL\\Connector J 8.0\\)
+		
+		// 오라클 경로 : C:\\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\\ojdbc6.jar
+		// MySQL 경로 : C:\\Program Files (x86)\\MySQL\\Connector J 8.0\\mysql-connector-java-8.0.28.jar
+		
 		SQLConnector sqlc = new SQLConnector();
 	}
 }
