@@ -1,12 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- JSP를 사용할 땐 타임리프를 추가하지 않는다
+spring web, spring dev tool, MySQL Driver, Spring Data JPA
+-->
+<!-- 
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
+ -->
+ <!-- src/webapp/WEB-INF/jsp/main.jsp -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Student Management System</title>
+<title>SpringBoot JSP MySQL 게시판</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Management System</a>
@@ -16,8 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" th:href="@{/students}">Management</a>
-          <!-- <a class="nav-link" href="/students">Management1</a> -->
+          <a class="nav-link" href="/">Management</a>
         </li>
       </ul>
     </div>
@@ -27,45 +38,56 @@
 
 <div class="container">
 	<div class="row">
-		<h1> List Students </h1>	
+		<h1> My Table </h1>	
 	</div>
 	
 	<div class="row">
 		<div class="col-lg-3">
-			<a th:href="@{/students/new}" class="btn btn-primary btn-sm mb-3">등록하기</a>
+			<a href="/new" class="btn btn-primary btn-sm mb-3">등록하기</a>
 		</div>
 	</div>
 	
 	<table class="table table-striped table-bordered">
   <thead class="table-dark">
     <tr>
-      <th>Student First Name</th>
-      <th>Student Last Name</th>
-      <th>Student Email</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Phone</th>
+      <th>Email</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr th:each="student:${students}">
-    	<td th:text="${student.firstName}"></td>
-    	<td th:text="${student.lastName}"></td>
-    	<td th:text="${student.email}"></td>
-    	<td>
-    		<a th:href="@{/students/edit/{id}(id=${student.id})}" class="btn btn-primary">수정하기</a>
-    		<a th:href="@{/students/{id}(id=${student.id})}" class="btn btn-danger">삭제하기</a>
-    	</td>
-    </tr>
+  	<c:forEach items="${workers}" var="worker">
+		<tr>
+			<td><c:out value="${worker.name}"/></td>
+			<td><c:out value="${worker.gender}"/></td>
+			<td><c:out value="${worker.phone}"/></td>
+			<td><c:out value="${worker.email}"/></td>
+			<td>
+				<a href="<c:url value='/edit/${worker.id}'/>" class="btn btn-primary">수정하기</a>
+				<a href="<c:url value='/${worker.id}'/>" class="btn btn-danger">삭제하기</a>
+			</td>
+		</tr>
+    </c:forEach>
   </tbody>
 </table>
 
-<div th:if="${totalPages > 1}">
+<%-- <div>
+<c:if test="${totalPages > 1}">
 	<div class="row col-sm-10">
 		<div class="col-sm-2">
-			Total Rows: [[${totalItems}]]
+			Total Rows: ${totalElements}
 		</div>
 		<div class="col-sm-1">
-			<a th:if="${currentPage > 1}" th:href="@{'/page/'+1}">First</a>
-			<span th:unless="${currentPage > 1}">First</span>
+			<c:choose>
+				<c:when test="${currentPage > 1}">
+					<a href="@{'/page/'+1}">First</a>
+				</c:when>
+				<c:otherwise>
+					<span>First</span>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		<div class="col-sm-1">
 			<a th:if="${currentPage > 1}" th:href="@{'/page/'+${currentPage -1}}">Prev</a>
@@ -86,8 +108,9 @@
 			<span th:unless="${currentPage < totalPages}">Last</span>
 		</div>
 	</div>
-</div>
-	
+</c:if>
+</div> --%>
+
 </div>
 
 </body>

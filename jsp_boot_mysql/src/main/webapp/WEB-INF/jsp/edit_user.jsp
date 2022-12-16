@@ -1,8 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>등록페이지</title>
+<title>유저 수정 페이지</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -16,7 +19,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" th:href="@{/students}">Management</a>
+          <a class="nav-link" href="/">Management</a>
           <!-- <a class="nav-link" href="/students">Management1</a> -->
         </li>
       </ul>
@@ -28,21 +31,24 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-				<h1 class="text-center">Create New Student</h1>
+				<h1 class="text-center">Update Student</h1>
 				<div class="card-body">
-					<form th:action="@{/students}" th:object="${student}" method="POST">
+					<form action="<c:url value='/${worker.id}'/>" method="POST">
 						<div class="form-group">
-							<label>Student First Name</label>
-							<input type="text" name="firstName" th:field="*{firstName}" class="form-control" placeholder="Enter First Name"/>
+							<label>name</label>
+							<input type="text" name="name" field="name" value="${worker.name}" class="form-control" placeholder="Enter Name"/>
 							
-							<label>Student Last Name</label>
-							<input type="text" name="lastName" th:field="*{lastName}" class="form-control" placeholder="Enter Last Name"/>
+							<label>gender</label>
+							<input type="text" name="gender" field="gender" value="${worker.gender}" class="form-control" placeholder="Enter Gender"/>
 							
-							<label>Student Email</label>
-							<input type="text" name="email" th:field="*{email}" class="form-control" placeholder="Enter Email"/>
+							<label>Phone</label>
+							<input type="text" name="phone" field="phone" value="${worker.phone}" class="form-control" placeholder="Enter Phone"/>
+							
+							<label>Email</label>
+							<input type="text" name="email" field="email" value="${worker.email}" class="form-control" placeholder="Enter Email"/>
 							
 							<div class="box-footer">
-								<button type="submit" class="btn btn-primary">등록하기</button>
+								<button type="submit" class="btn btn-primary">수정하기</button>
 							</div>
 						</div>
 					</form>
