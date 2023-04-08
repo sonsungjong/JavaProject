@@ -2,7 +2,7 @@ package day09;
 
 public class Interface1Impl implements Interface1{
 	public static void main(String[] args) {
-		Interface1Impl i1 = new Interface1Impl();
+		Interface1 i1 = new Interface1Impl();
 		i1.go();
 	}
 
