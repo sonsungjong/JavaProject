@@ -6,6 +6,8 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\java\eGovFrameDev-4.0.0-64bit\workspace\TestWeb"/>
+			<item value="D:\java\eGovFrameDev-4.0.0-64bit\workspace\repeat"/>
 			<item value="D:\java\eGovFrameDev-4.0.0-64bit\workspace\login"/>
 			<item value="D:\java\eGovFrameDev-4.0.0-64bit\workspace\korea"/>
 			<item value="D:\source\java\eGovFrameDev-4.0.0-64bit\workspace\korea"/>

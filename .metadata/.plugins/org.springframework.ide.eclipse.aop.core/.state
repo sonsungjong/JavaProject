@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="eGovBootTemplate"/>
+<aop-project name="korea"/>
 <aop-project name="repeat"/>
+<aop-project name="eGovBootWeb"/>
+<aop-project name="login"/>
+<aop-project name="jsp_boot_mysql"/>
+<aop-project name="jsp_boot"/>
 </aop-reference-model>
