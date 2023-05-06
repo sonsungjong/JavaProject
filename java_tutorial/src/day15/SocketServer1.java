@@ -12,7 +12,7 @@ public class SocketServer1 extends Thread{
 	private OutputStream os;
 	private ServerSocket serverSocket;
 	private ObjectInputStream ois;
-	ObjectOutputStream oos;
+	private ObjectOutputStream oos;
 	Socket socket;
 	
 	@Override

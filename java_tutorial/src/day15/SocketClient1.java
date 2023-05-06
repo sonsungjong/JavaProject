@@ -21,49 +21,51 @@ public class SocketClient1{
 	
 	public void mystart() {
 		try {
-//			socket = new Socket("14.37.81.250", 5000);
 			socket = new Socket("127.0.0.1", 5000);
+			sc = new Scanner(System.in);
+			os = socket.getOutputStream();
+			is = socket.getInputStream();
+			oos = new ObjectOutputStream(os);
+			ois = new ObjectInputStream(is);
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		sendMessage(socket);
-		receiveMessage(socket);
+		
+		while(true) {
+			sendMessage(socket);
+			receiveMessage(socket);			
+		}
 	}
 	
 	private void receiveMessage(Socket socket) {
+		rMsg = "";
 		try {
-			is = socket.getInputStream();
-			ois = new ObjectInputStream(is);
 			rMsg = (String)ois.readObject();
 			System.out.println(rMsg);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	private void sendMessage(Socket socket) {
 		try {
-			os = socket.getOutputStream();
-			oos = new ObjectOutputStream(os);
-			sc = new Scanner(System.in);
 			System.out.print("보낼 메시지>>");
-			String sMsg = sc.nextLine();
-			oos.writeObject(sMsg);
+			if(sc.hasNextLine()) {
+				String sMsg = sc.nextLine();
+				oos.writeObject(sMsg);
+				oos.flush();				
+			}else {
+				System.out.println("입력이 없습니다.");				// nextLine 버그 방지
+			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	public static void main(String[] args) {
 		SocketClient1 client = new SocketClient1();
-		while(true) {
-			client.mystart();
-		}
+		client.mystart();
 	}
 }
