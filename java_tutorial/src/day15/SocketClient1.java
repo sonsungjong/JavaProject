@@ -35,7 +35,7 @@ public class SocketClient1{
 		
 		while(true) {
 			sendMessage(socket);
-			receiveMessage(socket);			
+			receiveMessage(socket);
 		}
 	}
 	
